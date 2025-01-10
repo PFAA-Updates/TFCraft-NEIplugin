@@ -30,16 +30,6 @@
 
 package net.dries007.tfcnei;
 
-import static net.dries007.tfcnei.util.Constants.MODID;
-
-import java.io.IOException;
-import java.util.Map;
-
-import net.dries007.tfcnei.util.Metrics;
-import net.minecraftforge.common.config.Configuration;
-
-import org.apache.logging.log4j.Logger;
-
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -48,6 +38,12 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkCheckHandler;
 import cpw.mods.fml.relauncher.Side;
+import java.io.IOException;
+import java.util.Map;
+import static net.dries007.tfcnei.util.Constants.MODID;
+import net.dries007.tfcnei.util.Metrics;
+import net.minecraftforge.common.config.Configuration;
+import org.apache.logging.log4j.Logger;
 
 /**
  * @author Dries007

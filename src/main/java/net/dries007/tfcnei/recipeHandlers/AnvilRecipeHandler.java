@@ -32,18 +32,8 @@ package net.dries007.tfcnei.recipeHandlers;
 
 import static codechicken.lib.gui.GuiDraw.changeTexture;
 import static codechicken.lib.gui.GuiDraw.drawTexturedModalRect;
-import static net.dries007.tfcnei.recipeHandlers.AnvilRecipeHandler.TYPE.*;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import net.dries007.tfcnei.util.Helper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-
-import org.lwjgl.opengl.GL11;
-
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 import com.bioxx.tfc.Core.Recipes;
 import com.bioxx.tfc.GUI.GuiAnvil;
 import com.bioxx.tfc.Items.Tools.ItemHammer;
@@ -51,9 +41,17 @@ import com.bioxx.tfc.api.Crafting.AnvilManager;
 import com.bioxx.tfc.api.Crafting.AnvilRecipe;
 import com.bioxx.tfc.api.Crafting.AnvilReq;
 import com.bioxx.tfc.api.TFCItems;
-
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import static net.dries007.tfcnei.recipeHandlers.AnvilRecipeHandler.TYPE.HAMMER_NORMAL;
+import static net.dries007.tfcnei.recipeHandlers.AnvilRecipeHandler.TYPE.HAMMER_WELD;
+import static net.dries007.tfcnei.recipeHandlers.AnvilRecipeHandler.TYPE.NORMAL;
+import static net.dries007.tfcnei.recipeHandlers.AnvilRecipeHandler.TYPE.WELD;
+import net.dries007.tfcnei.util.Helper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.item.ItemStack;
+import org.lwjgl.opengl.GL11;
 
 /**
  * @author Dries007

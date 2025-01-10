@@ -30,24 +30,21 @@
 
 package net.dries007.tfcnei.recipeHandlers;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import net.dries007.tfcnei.util.Helper;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 import com.bioxx.tfc.Items.ItemFlatGeneric;
 import com.bioxx.tfc.Items.ItemLooseRock;
 import com.bioxx.tfc.Reference;
 import com.bioxx.tfc.api.Crafting.CraftingManagerTFC;
 import com.bioxx.tfc.api.Crafting.ShapedRecipesTFC;
 import com.bioxx.tfc.api.TFCItems;
-
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import net.dries007.tfcnei.util.Helper;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 
 /**
  * @author Dries007

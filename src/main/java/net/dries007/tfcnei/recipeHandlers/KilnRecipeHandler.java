@@ -30,19 +30,16 @@
 
 package net.dries007.tfcnei.recipeHandlers;
 
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
+import com.bioxx.tfc.api.Crafting.KilnCraftingManager;
+import com.bioxx.tfc.api.Crafting.KilnRecipe;
 import java.awt.*;
 import java.util.List;
-
 import net.dries007.tfcnei.util.Constants;
 import net.dries007.tfcnei.util.Helper;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-
-import com.bioxx.tfc.api.Crafting.KilnCraftingManager;
-import com.bioxx.tfc.api.Crafting.KilnRecipe;
-
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 
 /**
  * @author Dries007

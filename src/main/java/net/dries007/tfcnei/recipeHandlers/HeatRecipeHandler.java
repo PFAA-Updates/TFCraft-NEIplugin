@@ -30,11 +30,24 @@
 
 package net.dries007.tfcnei.recipeHandlers;
 
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
+import com.bioxx.tfc.Containers.Slots.SlotCookableFoodOnly;
+import com.bioxx.tfc.Containers.Slots.SlotFirepitIn;
+import com.bioxx.tfc.Core.TFC_Core;
+import com.bioxx.tfc.Food.ItemFoodTFC;
+import com.bioxx.tfc.Items.ItemMeltedMetal;
+import com.bioxx.tfc.Items.ItemOre;
+import com.bioxx.tfc.api.HeatIndex;
+import com.bioxx.tfc.api.HeatRegistry;
+import com.bioxx.tfc.api.Interfaces.ISmeltable;
+import com.bioxx.tfc.api.TFCBlocks;
+import com.bioxx.tfc.api.TFCItems;
+import com.bioxx.tfc.api.TFC_ItemHeat;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import net.dries007.tfcnei.util.Constants;
 import net.dries007.tfcnei.util.Helper;
 import net.minecraft.client.Minecraft;
@@ -42,18 +55,6 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import com.bioxx.tfc.Containers.Slots.SlotCookableFoodOnly;
-import com.bioxx.tfc.Containers.Slots.SlotFirepitIn;
-import com.bioxx.tfc.Core.TFC_Core;
-import com.bioxx.tfc.Food.ItemFoodTFC;
-import com.bioxx.tfc.Items.ItemMeltedMetal;
-import com.bioxx.tfc.Items.ItemOre;
-import com.bioxx.tfc.api.*;
-import com.bioxx.tfc.api.Interfaces.ISmeltable;
-
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 
 /**
  * @author Dries007

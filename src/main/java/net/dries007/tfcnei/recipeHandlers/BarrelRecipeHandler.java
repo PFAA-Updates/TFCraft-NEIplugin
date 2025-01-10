@@ -31,31 +31,32 @@
 package net.dries007.tfcnei.recipeHandlers;
 
 import static codechicken.lib.gui.GuiDraw.getMousePosition;
-import static net.dries007.tfcnei.util.Helper.getItemStacksForFluid;
-import static net.minecraftforge.fluids.FluidContainerRegistry.getFluidForFilledItem;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import net.dries007.tfcnei.util.Constants;
-import net.dries007.tfcnei.util.Helper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
-import com.bioxx.tfc.api.Crafting.*;
-import com.bioxx.tfc.api.Enums.EnumFoodGroup;
-import com.bioxx.tfc.api.Interfaces.IFood;
-
 import codechicken.nei.NEIClientConfig;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.GuiCraftingRecipe;
 import codechicken.nei.recipe.GuiRecipe;
 import codechicken.nei.recipe.GuiUsageRecipe;
 import codechicken.nei.recipe.TemplateRecipeHandler;
+import com.bioxx.tfc.api.Crafting.BarrelBriningRecipe;
+import com.bioxx.tfc.api.Crafting.BarrelLiquidToLiquidRecipe;
+import com.bioxx.tfc.api.Crafting.BarrelManager;
+import com.bioxx.tfc.api.Crafting.BarrelMultiItemRecipe;
+import com.bioxx.tfc.api.Crafting.BarrelRecipe;
+import com.bioxx.tfc.api.Crafting.BarrelVinegarRecipe;
+import com.bioxx.tfc.api.Enums.EnumFoodGroup;
+import com.bioxx.tfc.api.Interfaces.IFood;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import net.dries007.tfcnei.util.Constants;
+import net.dries007.tfcnei.util.Helper;
+import static net.dries007.tfcnei.util.Helper.getItemStacksForFluid;
+import net.minecraft.client.Minecraft;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import static net.minecraftforge.fluids.FluidContainerRegistry.getFluidForFilledItem;
+import net.minecraftforge.fluids.FluidStack;
 
 /**
  * @author Dries007

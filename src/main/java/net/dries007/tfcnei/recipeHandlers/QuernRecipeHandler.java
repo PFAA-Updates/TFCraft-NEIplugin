@@ -30,19 +30,16 @@
 
 package net.dries007.tfcnei.recipeHandlers;
 
-import java.awt.*;
-import java.util.List;
-
-import net.dries007.tfcnei.util.Helper;
-import net.minecraft.item.ItemStack;
-
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 import com.bioxx.tfc.Reference;
 import com.bioxx.tfc.api.Crafting.QuernManager;
 import com.bioxx.tfc.api.Crafting.QuernRecipe;
 import com.bioxx.tfc.api.TFCItems;
-
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
+import java.awt.*;
+import java.util.List;
+import net.dries007.tfcnei.util.Helper;
+import net.minecraft.item.ItemStack;
 
 /**
  * @author Dries007

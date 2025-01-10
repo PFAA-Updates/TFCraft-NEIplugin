@@ -24,22 +24,31 @@
 
 package net.dries007.tfcnei.util;
 
-import java.io.*;
-import java.net.Proxy;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.util.*;
-import java.util.zip.GZIPOutputStream;
-
-import net.minecraft.server.MinecraftServer;
-import net.minecraftforge.common.config.Configuration;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.Proxy;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+import java.util.zip.GZIPOutputStream;
+import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.common.config.Configuration;
 
 public class Metrics {
 
