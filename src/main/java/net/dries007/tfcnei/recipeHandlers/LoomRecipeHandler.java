@@ -1,26 +1,20 @@
 /*
  * Copyright (c) 2014 Dries007
- *
  * All rights reserved.
- *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the
  * disclaimer below) provided that the following conditions are met:
- *
- *  * Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- *  * Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the
- *    distribution.
- *
- *  * Neither the name of Dries007 nor the names of its
- *    contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
+ * * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ * * Redistributions in binary form must reproduce the above copyright
+ * notice, this list of conditions and the following disclaimer in the
+ * documentation and/or other materials provided with the
+ * distribution.
+ * * Neither the name of Dries007 nor the names of its
+ * contributors may be used to endorse or promote products derived
+ * from this software without specific prior written permission.
  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
- * GRANTED BY THIS LICENSE.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+ * GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
  * HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
  * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -36,108 +30,96 @@
 
 package net.dries007.tfcnei.recipeHandlers;
 
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
-import com.bioxx.tfc.api.Crafting.LoomManager;
-import com.bioxx.tfc.api.Crafting.LoomRecipe;
+import java.awt.*;
+import java.util.List;
+
 import net.dries007.tfcnei.util.Constants;
 import net.dries007.tfcnei.util.Helper;
 import net.minecraft.item.ItemStack;
 
-import java.awt.*;
-import java.util.List;
+import com.bioxx.tfc.api.Crafting.LoomManager;
+import com.bioxx.tfc.api.Crafting.LoomRecipe;
+
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 
 /**
  * @author Dries007
  */
-public class LoomRecipeHandler extends TemplateRecipeHandler
-{
+public class LoomRecipeHandler extends TemplateRecipeHandler {
+
     private static List<LoomRecipe> recipeList;
 
     @Override
-    public String getGuiTexture()
-    {
+    public String getGuiTexture() {
         return Constants.LOOM_TEXTURE.toString();
     }
 
     @Override
-    public String getRecipeName()
-    {
+    public String getRecipeName() {
         return "Loom";
     }
 
     @Override
-    public String getOverlayIdentifier()
-    {
+    public String getOverlayIdentifier() {
         return "loom";
     }
 
     @Override
-    public void loadTransferRects()
-    {
+    public void loadTransferRects() {
         transferRects.add(new RecipeTransferRect(new Rectangle(88, 44 - 18, 25, 18), "loom"));
     }
 
     @Override
-    public void loadCraftingRecipes(String outputId, Object... results)
-    {
-        if (outputId.equals("loom") && getClass() == LoomRecipeHandler.class)
-        {
+    public void loadCraftingRecipes(String outputId, Object... results) {
+        if (outputId.equals("loom") && getClass() == LoomRecipeHandler.class) {
             for (LoomRecipe recipe : recipeList) arecipes.add(new CachedLoomRecipe(recipe));
-        }
-        else super.loadCraftingRecipes(outputId, results);
+        } else super.loadCraftingRecipes(outputId, results);
     }
 
     @SuppressWarnings("unchecked")
     @Override
-    public TemplateRecipeHandler newInstance()
-    {
-        if (recipeList == null) recipeList = LoomManager.getInstance().getRecipes();
+    public TemplateRecipeHandler newInstance() {
+        if (recipeList == null) recipeList = LoomManager.getInstance()
+            .getRecipes();
         return super.newInstance();
     }
 
     @Override
-    public void loadCraftingRecipes(ItemStack result)
-    {
-        for (LoomRecipe recipe : recipeList)
-        {
+    public void loadCraftingRecipes(ItemStack result) {
+        for (LoomRecipe recipe : recipeList) {
             ItemStack out = recipe.getOutItemStack();
             if (Helper.areItemStacksEqual(result, out)) arecipes.add(new CachedLoomRecipe(recipe.getInItem(), out));
         }
     }
 
     @Override
-    public void loadUsageRecipes(ItemStack ingredient)
-    {
+    public void loadUsageRecipes(ItemStack ingredient) {
         for (LoomRecipe recipe : recipeList)
             if (Helper.areItemStacksEqual(ingredient, recipe.getInItem())) arecipes.add(new CachedLoomRecipe(recipe));
     }
 
-    public class CachedLoomRecipe extends CachedRecipe
-    {
+    public class CachedLoomRecipe extends CachedRecipe {
+
         final PositionedStack ingred;
         final PositionedStack result;
 
-        public CachedLoomRecipe(ItemStack ingred, ItemStack result)
-        {
+        public CachedLoomRecipe(ItemStack ingred, ItemStack result) {
             this.ingred = new PositionedStack(ingred, 59, 24);
             this.result = new PositionedStack(result, 119, 24);
         }
 
-        public CachedLoomRecipe(LoomRecipe recipe)
-        {
+        public CachedLoomRecipe(LoomRecipe recipe) {
             this(recipe.getInItem(), recipe.getOutItemStack());
         }
 
         @Override
-        public PositionedStack getResult()
-        {
+        public PositionedStack getResult() {
             return result;
         }
 
         @Override
-        public PositionedStack getIngredient()
-        {
+        public PositionedStack getIngredient() {
             return ingred;
         }
     }

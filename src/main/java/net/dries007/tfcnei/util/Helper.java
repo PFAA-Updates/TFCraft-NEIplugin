@@ -1,26 +1,20 @@
 /*
  * Copyright (c) 2014 Dries007
- *
  * All rights reserved.
- *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the
  * disclaimer below) provided that the following conditions are met:
- *
- *  * Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- *  * Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the
- *    distribution.
- *
- *  * Neither the name of Dries007 nor the names of its
- *    contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
+ * * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ * * Redistributions in binary form must reproduce the above copyright
+ * notice, this list of conditions and the following disclaimer in the
+ * documentation and/or other materials provided with the
+ * distribution.
+ * * Neither the name of Dries007 nor the names of its
+ * contributors may be used to endorse or promote products derived
+ * from this software without specific prior written permission.
  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
- * GRANTED BY THIS LICENSE.  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+ * GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
  * HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
  * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -36,7 +30,14 @@
 
 package net.dries007.tfcnei.util;
 
-import cpw.mods.fml.relauncher.ReflectionHelper;
+import static codechicken.lib.gui.GuiDraw.gui;
+import static net.minecraftforge.fluids.FluidContainerRegistry.BUCKET_VOLUME;
+import static net.minecraftforge.fluids.FluidContainerRegistry.getRegisteredFluidContainerData;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -47,26 +48,19 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
+
 import org.lwjgl.opengl.GL11;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import static codechicken.lib.gui.GuiDraw.gui;
-import static net.minecraftforge.fluids.FluidContainerRegistry.BUCKET_VOLUME;
-import static net.minecraftforge.fluids.FluidContainerRegistry.getRegisteredFluidContainerData;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 /**
  * Static stuff for all to use :p
  *
  * @author Dries007
  */
-public class Helper
-{
-    private Helper()
-    {
-    }
+public class Helper {
+
+    private Helper() {}
 
     /**
      * For ease of use when using some field or method in for example an if statement
@@ -74,20 +68,17 @@ public class Helper
      * @deprecated because its bad to use, and it will alert me at compile time.
      */
     @Deprecated
-    public static <T, E> T getPrivateValue(Class<? super E> classToAccess, Class<T> returnType, E instance, String... fieldNames)
-    {
+    public static <T, E> T getPrivateValue(Class<? super E> classToAccess, Class<T> returnType, E instance,
+        String... fieldNames) {
         return ReflectionHelper.getPrivateValue(classToAccess, instance, fieldNames);
     }
 
-    public static ItemStack[] getItemStacksForFluid(FluidStack fluidStack)
-    {
+    public static ItemStack[] getItemStacksForFluid(FluidStack fluidStack) {
         if (fluidStack == null) return null;
 
         List<ItemStack> itemStacks = new ArrayList<>();
-        for (FluidContainerRegistry.FluidContainerData data : getRegisteredFluidContainerData())
-        {
-            if (data.fluid.isFluidEqual(fluidStack))
-            {
+        for (FluidContainerRegistry.FluidContainerData data : getRegisteredFluidContainerData()) {
+            if (data.fluid.isFluidEqual(fluidStack)) {
                 ItemStack itemStack = data.filledContainer.copy();
                 int cap = FluidContainerRegistry.getContainerCapacity(data.fluid, data.emptyContainer);
                 if (cap == 0) itemStack.stackSize = 0;
@@ -95,35 +86,44 @@ public class Helper
                 itemStacks.add(itemStack);
             }
         }
-        if (itemStacks.size() == 0)
-        {
-            ItemStack itemStack = new ItemStack(fluidStack.getFluid().getBlock(), fluidStack.amount / BUCKET_VOLUME);
-            if (itemStack.getItem() == null)
-            {
-                itemStack = new ItemStack(Blocks.sponge, itemStack.stackSize).setStackDisplayName(fluidStack.getLocalizedName());
-                itemStack.getTagCompound().setString("FLUID", fluidStack.getFluid().getName());
+        if (itemStacks.size() == 0) {
+            ItemStack itemStack = new ItemStack(
+                fluidStack.getFluid()
+                    .getBlock(),
+                fluidStack.amount / BUCKET_VOLUME);
+            if (itemStack.getItem() == null) {
+                itemStack = new ItemStack(Blocks.sponge, itemStack.stackSize)
+                    .setStackDisplayName(fluidStack.getLocalizedName());
+                itemStack.getTagCompound()
+                    .setString(
+                        "FLUID",
+                        fluidStack.getFluid()
+                            .getName());
             }
             itemStacks.add(itemStack);
         }
         return itemStacks.toArray(new ItemStack[itemStacks.size()]);
     }
 
-    public static void drawCenteredString(FontRenderer fontrenderer, String s, int i, int j, int k)
-    {
+    public static void drawCenteredString(FontRenderer fontrenderer, String s, int i, int j, int k) {
         fontrenderer.drawString(s, i - fontrenderer.getStringWidth(s) / 2, j, k);
     }
 
-    public static void drawFluidInRect(Fluid fluid, Rectangle rect)
-    {
+    public static void drawFluidInRect(Fluid fluid, Rectangle rect) {
         IIcon fluidIcon = fluid.getIcon();
-        Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
+        Minecraft.getMinecraft()
+            .getTextureManager()
+            .bindTexture(TextureMap.locationBlocksTexture);
         int color = fluid.getColor();
-        GL11.glColor4ub((byte) ((color >> 16) & 255), (byte) ((color >> 8) & 255), (byte) (color & 255), (byte) (0xaa & 255));
+        GL11.glColor4ub(
+            (byte) ((color >> 16) & 255),
+            (byte) ((color >> 8) & 255),
+            (byte) (color & 255),
+            (byte) (0xaa & 255));
         gui.drawTexturedModelRectFromIcon(rect.x, rect.y, fluidIcon, rect.width, rect.height);
     }
 
-    public static String tooltipForFluid(FluidStack fluidStack)
-    {
+    public static String tooltipForFluid(FluidStack fluidStack) {
         return fluidStack.getLocalizedName() + " (" + fluidStack.amount + "mB)";
     }
 
@@ -131,8 +131,7 @@ public class Helper
      * true if both null
      * true if items are equal and [ meta are equal or if target's meta is wildcard ]
      */
-    public static boolean areItemStacksEqual(ItemStack input, ItemStack target)
-    {
+    public static boolean areItemStacksEqual(ItemStack input, ItemStack target) {
         return input == target || OreDictionary.itemMatches(target, input, false);
     }
 }

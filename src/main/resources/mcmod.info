@@ -1,21 +1,21 @@
 {
-  "modListVersion": 2,
-  "modList": [{
-    "modid": "TerraFirmaCraftNEIplugin",
-    "name": "TerraFirmaCraftNEIplugin",
-    "description": "${description}",
-    "version": "${version}",
-    "mcversion": "${mcversion}",
-    "url": "https://github.com/${githuborg}/${modid}",
-    "updateUrl": "",
-    "authorList": [ "Dries007" ],
-    "credits": "For TerraFirmaCraft by bioxx & dunkleosteus",
-    "logoFile": "",
-    "screenshots": [],
-    "parent": "",
-    "requiredMods": [ "Forge", "terrafirmacraft", "NotEnoughItems"],
-    "dependencies": [ "terrafirmacraft" , "NotEnoughItems"],
-    "dependants": [ ],
-    "useDependencyInformation": true
-  }]
+	"modListVersion": 2,
+	"modList": [{
+		"modid": "${modId}",
+		"name": "${modName}",
+		"description": "An NEI plugin for TerraFirmaCraft",
+		"version": "${modVersion}",
+		"mcversion": "${minecraftVersion}",
+		"url": "https://github.com/PFAA-Updates/TFCraft-NEIplugin",
+		"updateUrl": "",
+		"authorList": ["SinTho0r4s", "Dries007"],
+		"credits": "For TerraFirmaCraft by bioxx & dunkleosteus",
+		"logoFile": "",
+		"screenshots": [],
+		"parent": "",
+		"requiredMods": ["Forge", "terrafirmacraft", "NotEnoughItems"],
+		"dependencies": ["terrafirmacraft" , "NotEnoughItems"],
+		"dependants": [],
+		"useDependencyInformation": true
+	}]
 }
