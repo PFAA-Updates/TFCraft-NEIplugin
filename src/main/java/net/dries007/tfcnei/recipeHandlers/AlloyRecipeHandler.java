@@ -30,8 +30,17 @@
 
 package net.dries007.tfcnei.recipeHandlers;
 
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import net.dries007.tfcnei.util.Constants;
+import net.dries007.tfcnei.util.Helper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.item.ItemStack;
+
 import com.bioxx.tfc.Core.Metal.Alloy;
 import com.bioxx.tfc.Core.Metal.AlloyManager;
 import com.bioxx.tfc.Core.Metal.AlloyMetal;
@@ -40,15 +49,9 @@ import com.bioxx.tfc.Items.ItemOre;
 import com.bioxx.tfc.api.Metal;
 import com.bioxx.tfc.api.TFCItems;
 import com.google.common.collect.HashMultimap;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import net.dries007.tfcnei.util.Constants;
-import net.dries007.tfcnei.util.Helper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.item.ItemStack;
+
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 
 /**
  * @author Dries007

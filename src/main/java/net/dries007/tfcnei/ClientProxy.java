@@ -30,9 +30,8 @@
 
 package net.dries007.tfcnei;
 
-import codechicken.nei.api.API;
-import codechicken.nei.recipe.GuiCraftingRecipe;
-import codechicken.nei.recipe.GuiUsageRecipe;
+import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
+
 import net.dries007.tfcnei.gui.NEIGuiHandler;
 import net.dries007.tfcnei.recipeHandlers.AlloyRecipeHandler;
 import net.dries007.tfcnei.recipeHandlers.AnvilRecipeHandler;
@@ -43,7 +42,10 @@ import net.dries007.tfcnei.recipeHandlers.KnappingRecipeHandler;
 import net.dries007.tfcnei.recipeHandlers.LoomRecipeHandler;
 import net.dries007.tfcnei.recipeHandlers.QuernRecipeHandler;
 import net.minecraftforge.common.config.Configuration;
-import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
+
+import codechicken.nei.api.API;
+import codechicken.nei.recipe.GuiCraftingRecipe;
+import codechicken.nei.recipe.GuiUsageRecipe;
 
 /**
  * @author Dries007

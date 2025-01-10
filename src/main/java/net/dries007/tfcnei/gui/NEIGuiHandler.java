@@ -30,11 +30,13 @@
 
 package net.dries007.tfcnei.gui;
 
-import codechicken.nei.api.INEIGuiAdapter;
+import net.minecraft.client.gui.inventory.GuiContainer;
+
 import com.bioxx.tfc.GUI.GuiHealth;
 import com.bioxx.tfc.GUI.GuiInventoryTFC;
 import com.bioxx.tfc.GUI.GuiSkills;
-import net.minecraft.client.gui.inventory.GuiContainer;
+
+import codechicken.nei.api.INEIGuiAdapter;
 
 /**
  * @author Dries007

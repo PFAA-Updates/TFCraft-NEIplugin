@@ -30,8 +30,19 @@
 
 package net.dries007.tfcnei.recipeHandlers;
 
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import net.dries007.tfcnei.util.Constants;
+import net.dries007.tfcnei.util.Helper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
 import com.bioxx.tfc.Containers.Slots.SlotCookableFoodOnly;
 import com.bioxx.tfc.Containers.Slots.SlotFirepitIn;
 import com.bioxx.tfc.Core.TFC_Core;
@@ -44,17 +55,9 @@ import com.bioxx.tfc.api.Interfaces.ISmeltable;
 import com.bioxx.tfc.api.TFCBlocks;
 import com.bioxx.tfc.api.TFCItems;
 import com.bioxx.tfc.api.TFC_ItemHeat;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import net.dries007.tfcnei.util.Constants;
-import net.dries007.tfcnei.util.Helper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 
 /**
  * @author Dries007

@@ -31,10 +31,13 @@
 package net.dries007.tfcnei.util;
 
 import static codechicken.lib.gui.GuiDraw.gui;
-import cpw.mods.fml.relauncher.ReflectionHelper;
-import java.awt.*;
+import static net.minecraftforge.fluids.FluidContainerRegistry.BUCKET_VOLUME;
+import static net.minecraftforge.fluids.FluidContainerRegistry.getRegisteredFluidContainerData;
+
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -43,11 +46,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
-import static net.minecraftforge.fluids.FluidContainerRegistry.BUCKET_VOLUME;
-import static net.minecraftforge.fluids.FluidContainerRegistry.getRegisteredFluidContainerData;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 /**
  * Static stuff for all to use :p
